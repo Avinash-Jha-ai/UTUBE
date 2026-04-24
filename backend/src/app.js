@@ -13,7 +13,7 @@ import userActionRouter from "./routes/userAction.route.js"
 const app =express();
 
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:5174", "https://youtube-cyan-omega.vercel.app"],
+    origin: true,
     credentials: true
 }));
 
