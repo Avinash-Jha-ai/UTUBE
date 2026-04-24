@@ -40,7 +40,11 @@ export const register = async (req, res) => {
             expiresIn: "7d"
         })
 
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none"
+        });
 
         return res.status(200).json({
             message: "user registered successfully",
@@ -81,7 +85,11 @@ export const login = async (req, res) => {
             expiresIn: "7d"
         })
 
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none"
+        });
 
         return res.status(200).json({
             message: "user login succefullt",
@@ -123,7 +131,11 @@ export const getMe = async (req, res) => {
 
 export const logout = async (req, res) => {
     try {
-        await res.clearCookie("authToken");
+        await res.clearCookie("token", {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none"
+        });
 
         return res.status(200).json({
             message: "user logout ",
