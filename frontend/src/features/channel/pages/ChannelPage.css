@@ -1,0 +1,158 @@
+.channel-page {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.channel-banner {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.channel-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-placeholder {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.channel-header-info {
+  padding: 0 24px;
+  margin-bottom: 32px;
+}
+
+.channel-main-info {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.channel-avatar-large {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  border: 4px solid var(--bg-primary);
+}
+
+.channel-title-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 8px;
+}
+
+.channel-text-info h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0;
+}
+
+.update-channel-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.update-channel-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+.handle {
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.description {
+  color: #e5e5e5;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+.channel-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--glass-border);
+  margin: 0 24px 24px;
+}
+
+.tab {
+  padding: 12px 24px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  position: relative;
+}
+
+.tab.active {
+  color: white;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-red);
+}
+
+.channel-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .channel-main-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.subscribe-btn {
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  background: #cc0000;
+}
+
+
+.subscribe-btn.subscribed {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ccc;
+}
+
+.subscribe-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.subscribe-btn.subscribed:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+

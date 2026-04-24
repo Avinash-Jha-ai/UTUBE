@@ -1,0 +1,124 @@
+.upload-page {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.upload-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 32px;
+}
+
+.upload-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  border: 2px dashed var(--glass-border);
+  gap: 16px;
+}
+
+.upload-icon {
+  color: var(--text-secondary);
+}
+
+.select-btn {
+  padding: 12px 32px;
+  border-radius: 24px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 16px;
+}
+
+.upload-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.file-preview {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+.input-group-v {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group-v label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.input-group-v input, .input-group-v textarea {
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  color: white;
+  outline: none;
+}
+
+.input-group-v input:focus, .input-group-v textarea:focus {
+  border-color: var(--accent-red);
+}
+
+.input-group-v textarea {
+  height: 120px;
+  resize: none;
+}
+
+.progress-container {
+  margin-top: 10px;
+}
+
+.progress-bar {
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.upload-submit-btn {
+  padding: 14px;
+  border-radius: var(--radius-md);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.status-view {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.status-view h3 {
+  font-size: 1.5rem;
+  margin: 20px 0 10px;
+}
+
+.status-view p {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
