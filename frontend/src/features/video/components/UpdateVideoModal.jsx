@@ -22,7 +22,7 @@ const UpdateVideoModal = ({ video, onClose, onUpdate, onDelete }) => {
     if (thumbnail) formData.append('thumbnail', thumbnail);
 
     try {
-      const response = await axios.post(`http://localhost:3000/api/content/update/${video._id}`, formData, {
+      const response = await axios.post(`https://utube-b49v.onrender.com/api/content/update/${video._id}`, formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -49,7 +49,7 @@ const UpdateVideoModal = ({ video, onClose, onUpdate, onDelete }) => {
     
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:3000/api/content/delete/${video._id}`, {
+      const response = await axios.get(`https://utube-b49v.onrender.com/api/content/delete/${video._id}`, {
         withCredentials: true
       });
       

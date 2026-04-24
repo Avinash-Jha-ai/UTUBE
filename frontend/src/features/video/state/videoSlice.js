@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/content';
+const API_URL = 'https://utube-b49v.onrender.com/api/content';
 
 export const fetchAllVideos = createAsyncThunk('video/fetchAll', async (_, { rejectWithValue }) => {
   try {

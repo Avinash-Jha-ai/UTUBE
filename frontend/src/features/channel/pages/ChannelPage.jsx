@@ -25,16 +25,16 @@ const ChannelPage = () => {
   useEffect(() => {
     const fetchChannelData = async () => {
       try {
-        const chanRes = await axios.get(`http://localhost:3000/api/channel/${handle}`);
+        const chanRes = await axios.get(`https://utube-b49v.onrender.com/api/channel/${handle}`);
         const channelData = chanRes.data.channel;
         setChannel(channelData);
         setSubscriberCount(channelData.subscriberCount || 0);
         
-        const vidRes = await axios.get(`http://localhost:3000/api/content/channel/${channelData.id || channelData._id}`);
+        const vidRes = await axios.get(`https://utube-b49v.onrender.com/api/content/channel/${channelData.id || channelData._id}`);
         setVideos(vidRes.data.videos);
 
         if (user) {
-          const subRes = await axios.get(`http://localhost:3000/api/subscribe/check/${channelData.id || channelData._id}`);
+          const subRes = await axios.get(`https://utube-b49v.onrender.com/api/subscribe/check/${channelData.id || channelData._id}`);
           setIsSubscribed(subRes.data.subscribed);
         }
 
@@ -54,11 +54,11 @@ const ChannelPage = () => {
     const channelId = channel.id || channel._id;
     try {
       if (isSubscribed) {
-        await axios.delete(`http://localhost:3000/api/subscribe/${channelId}`);
+        await axios.delete(`https://utube-b49v.onrender.com/api/subscribe/${channelId}`);
         setIsSubscribed(false);
         setSubscriberCount(prev => Math.max(0, prev - 1));
       } else {
-        await axios.post(`http://localhost:3000/api/subscribe/${channelId}`);
+        await axios.post(`https://utube-b49v.onrender.com/api/subscribe/${channelId}`);
         setIsSubscribed(true);
         setSubscriberCount(prev => prev + 1);
       }

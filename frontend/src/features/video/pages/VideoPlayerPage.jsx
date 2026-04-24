@@ -20,7 +20,7 @@ const CommentItem = ({ comment, user, videoId, onDelete }) => {
   const handleLike = async () => {
     if (!user) return alert("Please login");
     try {
-      const res = await axios.get(`http://localhost:3000/api/comment/like/${comment._id}`);
+      const res = await axios.get(`https://utube-b49v.onrender.com/api/comment/like/${comment._id}`);
       if (res.data.success) {
         setIsLiked(res.data.liked);
         setLikes(res.data.likes);
@@ -32,7 +32,7 @@ const CommentItem = ({ comment, user, videoId, onDelete }) => {
   const handleDislike = async () => {
     if (!user) return alert("Please login");
     try {
-      const res = await axios.get(`http://localhost:3000/api/comment/dislike/${comment._id}`);
+      const res = await axios.get(`https://utube-b49v.onrender.com/api/comment/dislike/${comment._id}`);
       if (res.data.success) {
         setIsDisliked(res.data.disliked);
         setDislikes(res.data.dislikes);
@@ -47,7 +47,7 @@ const CommentItem = ({ comment, user, videoId, onDelete }) => {
       return;
     }
     try {
-      const res = await axios.get(`http://localhost:3000/api/comment/replies/${comment._id}`);
+      const res = await axios.get(`https://utube-b49v.onrender.com/api/comment/replies/${comment._id}`);
       if (res.data.success) {
         setReplies(res.data.replies);
         setShowReplies(true);
@@ -59,7 +59,7 @@ const CommentItem = ({ comment, user, videoId, onDelete }) => {
     e.preventDefault();
     if (!replyText.trim()) return;
     try {
-      const res = await axios.post(`http://localhost:3000/api/comment/add/${videoId}`, {
+      const res = await axios.post(`https://utube-b49v.onrender.com/api/comment/add/${videoId}`, {
         content: replyText,
         parentCommentId: comment._id
       });
@@ -162,7 +162,7 @@ const VideoPlayerPage = () => {
 
   const fetchComments = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/comment/video/${id}`);
+      const res = await axios.get(`https://utube-b49v.onrender.com/api/comment/video/${id}`);
       if (res.data.success) {
         setComments(res.data.comments);
       }
@@ -174,13 +174,13 @@ const VideoPlayerPage = () => {
   useEffect(() => {
     const fetchVideoData = async () => {
       try {
-        await axios.get(`http://localhost:3000/api/content/view/${id}`);
-        const response = await axios.get(`http://localhost:3000/api/content/video/${id}`);
+        await axios.get(`https://utube-b49v.onrender.com/api/content/view/${id}`);
+        const response = await axios.get(`https://utube-b49v.onrender.com/api/content/video/${id}`);
         const videoData = response.data.video;
         setVideo(videoData);
         setLikesCount(videoData.likes?.length || 0);
         
-        const recRes = await axios.get('http://localhost:3000/api/content/video/all');
+        const recRes = await axios.get('https://utube-b49v.onrender.com/api/content/video/all');
         setRecommendedVideos(recRes.data.videos.filter(v => (v._id || v.id) !== id));
 
         if (user) {
@@ -189,22 +189,22 @@ const VideoPlayerPage = () => {
           setIsDisliked(videoData.dislikes?.includes(userId));
           
           if (videoData.channel?._id || videoData.channel?.id) {
-            const subRes = await axios.get(`http://localhost:3000/api/subscribe/check/${videoData.channel._id || videoData.channel.id}`);
+            const subRes = await axios.get(`https://utube-b49v.onrender.com/api/subscribe/check/${videoData.channel._id || videoData.channel.id}`);
             setIsSubscribed(subRes.data.subscribed);
           }
 
-          const wlRes = await axios.get(`http://localhost:3000/api/library/watchlater/check/${id}`);
+          const wlRes = await axios.get(`https://utube-b49v.onrender.com/api/library/watchlater/check/${id}`);
           setIsWatchLater(wlRes.data.exists);
         }
 
 
         if (videoData.channel?._id || videoData.channel?.id) {
-          const countRes = await axios.get(`http://localhost:3000/api/subscribe/count/${videoData.channel._id || videoData.channel.id}`);
+          const countRes = await axios.get(`https://utube-b49v.onrender.com/api/subscribe/count/${videoData.channel._id || videoData.channel.id}`);
           setSubscriberCount(countRes.data.count);
         }
 
         if (user) {
-          await axios.post(`http://localhost:3000/api/library/history/${id}`);
+          await axios.post(`https://utube-b49v.onrender.com/api/library/history/${id}`);
         }
 
         fetchComments();
@@ -223,7 +223,7 @@ const VideoPlayerPage = () => {
     if (!user) return alert("Please login to comment");
     if (!newComment.trim()) return;
     try {
-      const res = await axios.post(`http://localhost:3000/api/comment/add/${id}`, { content: newComment });
+      const res = await axios.post(`https://utube-b49v.onrender.com/api/comment/add/${id}`, { content: newComment });
       if (res.data.success) {
         setComments([res.data.comment, ...comments]);
         setNewComment("");
@@ -233,7 +233,7 @@ const VideoPlayerPage = () => {
 
   const handleDeleteComment = async (commentId) => {
     try {
-      const res = await axios.delete(`http://localhost:3000/api/comment/delete/${commentId}`);
+      const res = await axios.delete(`https://utube-b49v.onrender.com/api/comment/delete/${commentId}`);
       if (res.data.success) {
         setComments(comments.filter(c => c._id !== commentId));
       }
@@ -243,7 +243,7 @@ const VideoPlayerPage = () => {
   const handleLike = async () => {
     if (!user) return alert("Please login to like");
     try {
-      const res = await axios.get(`http://localhost:3000/api/content/like/${id}`);
+      const res = await axios.get(`https://utube-b49v.onrender.com/api/content/like/${id}`);
       if (res.data.success) {
         setIsLiked(res.data.liked);
         setIsDisliked(false);
@@ -255,7 +255,7 @@ const VideoPlayerPage = () => {
   const handleToggleWatchLater = async () => {
     if (!user) return alert("Please login");
     try {
-      const res = await axios.post(`http://localhost:3000/api/library/watchlater/${id}`);
+      const res = await axios.post(`https://utube-b49v.onrender.com/api/library/watchlater/${id}`);
       if (res.data.success) {
         setIsWatchLater(res.data.added);
       }
@@ -266,7 +266,7 @@ const VideoPlayerPage = () => {
     if (!user) return alert("Please login to dislike");
 
     try {
-      const res = await axios.get(`http://localhost:3000/api/content/dislike/${id}`);
+      const res = await axios.get(`https://utube-b49v.onrender.com/api/content/dislike/${id}`);
       if (res.data.success) {
         setIsDisliked(res.data.disliked);
         setIsLiked(false);
@@ -280,11 +280,11 @@ const VideoPlayerPage = () => {
     const channelId = video.channel?._id || video.channel?.id;
     try {
       if (isSubscribed) {
-        await axios.delete(`http://localhost:3000/api/subscribe/${channelId}`);
+        await axios.delete(`https://utube-b49v.onrender.com/api/subscribe/${channelId}`);
         setIsSubscribed(false);
         setSubscriberCount(prev => Math.max(0, prev - 1));
       } else {
-        await axios.post(`http://localhost:3000/api/subscribe/${channelId}`);
+        await axios.post(`https://utube-b49v.onrender.com/api/subscribe/${channelId}`);
         setIsSubscribed(true);
         setSubscriberCount(prev => prev + 1);
       }

@@ -11,7 +11,7 @@ const WatchLaterPage = () => {
 
   const fetchWatchLater = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/library/watchlater');
+      const res = await axios.get('https://utube-b49v.onrender.com/api/library/watchlater');
       if (res.data.success) {
         setVideos(res.data.videos);
       }
@@ -29,7 +29,7 @@ const WatchLaterPage = () => {
   const handleRemove = async (e, videoId) => {
     e.stopPropagation();
     try {
-      const res = await axios.post(`http://localhost:3000/api/library/watchlater/${videoId}`);
+      const res = await axios.post(`https://utube-b49v.onrender.com/api/library/watchlater/${videoId}`);
       if (res.data.success) {
         setVideos(videos.filter(v => v._id !== videoId));
       }

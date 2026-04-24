@@ -18,7 +18,7 @@ const UpdateProfileModal = ({ user, onClose, onUpdate }) => {
     if (avatar) formData.append('avatar', avatar);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/update-profile', formData, {
+      const response = await axios.post('https://utube-b49v.onrender.com/api/auth/update-profile', formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'multipart/form-data'

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/channel';
+const API_URL = 'https://utube-b49v.onrender.com/api/channel';
 axios.defaults.withCredentials = true;
 
 export const fetchMyChannel = createAsyncThunk('channel/fetchMyChannel', async (_, { rejectWithValue }) => {

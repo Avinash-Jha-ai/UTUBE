@@ -11,7 +11,7 @@ const LikedVideosPage = () => {
 
   const fetchLiked = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/library/liked');
+      const res = await axios.get('https://utube-b49v.onrender.com/api/library/liked');
       if (res.data.success) {
         setVideos(res.data.videos);
       }

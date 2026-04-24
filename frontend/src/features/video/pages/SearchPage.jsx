@@ -15,7 +15,7 @@ const SearchPage = () => {
     const fetchResults = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:3000/api/content/search?query=${encodeURIComponent(query)}`);
+        const res = await axios.get(`https://utube-b49v.onrender.com/api/content/search?query=${encodeURIComponent(query)}`);
         if (res.data.success) {
           setVideos(res.data.videos);
         }

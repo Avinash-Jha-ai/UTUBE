@@ -14,7 +14,7 @@ const Sidebar = ({ isOpen }) => {
     const fetchSubscriptions = async () => {
       if (user) {
         try {
-          const response = await axios.get('http://localhost:3000/api/subscribe/me');
+          const response = await axios.get('https://utube-b49v.onrender.com/api/subscribe/me');
           if (response.data.success) {
             setSubscriptions(response.data.data);
           }

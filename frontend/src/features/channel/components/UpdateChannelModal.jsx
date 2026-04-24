@@ -22,7 +22,7 @@ const UpdateChannelModal = ({ channel, onClose, onUpdate }) => {
     if (banner) formData.append('banner', banner);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/channel/update-channel', formData, {
+      const response = await axios.post('https://utube-b49v.onrender.com/api/channel/update-channel', formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'multipart/form-data'

@@ -26,7 +26,7 @@ const UploadPage = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:3000/api/content/upload/video', data, {
+      await axios.post('https://utube-b49v.onrender.com/api/content/upload/video', data, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}` 

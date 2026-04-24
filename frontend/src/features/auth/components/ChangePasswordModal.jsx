@@ -19,7 +19,7 @@ const ChangePasswordModal = ({ onClose }) => {
 
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/update-password', {
+      const response = await axios.post('https://utube-b49v.onrender.com/api/auth/update-password', {
         oldpassword: oldPassword,
         newpassword: newPassword
       }, { withCredentials: true });

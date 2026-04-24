@@ -11,7 +11,7 @@ const HistoryPage = () => {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/library/history');
+      const res = await axios.get('https://utube-b49v.onrender.com/api/library/history');
       if (res.data.success) {
         setHistory(res.data.history);
       }
@@ -29,7 +29,7 @@ const HistoryPage = () => {
   const handleClearHistory = async () => {
     if (!window.confirm("Clear all watch history?")) return;
     try {
-      const res = await axios.delete('http://localhost:3000/api/library/history');
+      const res = await axios.delete('https://utube-b49v.onrender.com/api/library/history');
       if (res.data.success) {
         setHistory([]);
       }
