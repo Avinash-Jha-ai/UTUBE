@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './features/layout/components/Navbar';
 import Sidebar from './features/layout/components/Sidebar';
 import AuthPage from './features/auth/pages/AuthPage';
@@ -46,6 +47,7 @@ function App() {
           </main>
         </div>
       </div>
+      <Analytics />
     </Router>
   );
 }
